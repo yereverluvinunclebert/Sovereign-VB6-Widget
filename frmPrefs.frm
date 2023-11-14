@@ -2600,9 +2600,9 @@ Private Sub btnSave_Click()
     gblPlDefaultEditor = txtDefaultEditor.Text
             
     If gblPlStartup = "1" Then
-        Call savestring(HKEY_CURRENT_USER, "SOFTWARE\Microsoft\Windows\CurrentVersion\Run", "planetWidget", """" & App.Path & "\" & "planet.exe""")
+        Call savestring(HKEY_CURRENT_USER, "SOFTWARE\Microsoft\Windows\CurrentVersion\Run", "SovereignWidget", """" & App.Path & "\" & "sovereign.exe""")
     Else
-        Call savestring(HKEY_CURRENT_USER, "SOFTWARE\Microsoft\Windows\CurrentVersion\Run", "planetWidget", vbNullString)
+        Call savestring(HKEY_CURRENT_USER, "SOFTWARE\Microsoft\Windows\CurrentVersion\Run", "SovereignWidget", vbNullString)
     End If
 
     ' save the values from the general tab
