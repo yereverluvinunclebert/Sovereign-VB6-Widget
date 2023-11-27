@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{BCE37951-37DF-4D69-A8A3-2CFABEE7B3CC}#1.0#0"; "CCRSlider.ocx"
-Begin VB.Form planetPrefs 
+Begin VB.Form sovereignPrefs 
    AutoRedraw      =   -1  'True
    Caption         =   "Sovereign Preferences"
    ClientHeight    =   10650
@@ -1662,14 +1662,14 @@ Begin VB.Form planetPrefs
       End
    End
 End
-Attribute VB_Name = "planetPrefs"
+Attribute VB_Name = "sovereignPrefs"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 
 '---------------------------------------------------------------------------------------
-' Module    : planetPrefs
+' Module    : sovereignPrefs
 ' Author    : beededea
 ' Date      : 17/08/2022
 ' Purpose   : VB6 standard form to display the prefs
@@ -1733,7 +1733,7 @@ Private Sub chkShowTaskbar_Click()
 
 chkShowTaskbar_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkShowTaskbar_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkShowTaskbar_Click of Form sovereignPrefs"
 End Sub
 
 
@@ -1791,7 +1791,7 @@ Private Sub Form_Load()
 
 Form_Load_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure Form_Load of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure Form_Load of Form sovereignPrefs"
 
 End Sub
 
@@ -1819,7 +1819,7 @@ Private Sub btnAboutDebugInfo_Click()
 
 btnAboutDebugInfo_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnAboutDebugInfo_Click of form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnAboutDebugInfo_Click of form sovereignPrefs"
 End Sub
 
 '---------------------------------------------------------------------------------------
@@ -1839,7 +1839,7 @@ Private Sub btnDonate_Click()
 
 btnDonate_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnDonate_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnDonate_Click of Form sovereignPrefs"
 End Sub
 
 '---------------------------------------------------------------------------------------
@@ -1861,7 +1861,7 @@ Private Sub btnFacebook_Click()
 
 btnFacebook_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnFacebook_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnFacebook_Click of Form sovereignPrefs"
 End Sub
 
 '---------------------------------------------------------------------------------------
@@ -1905,7 +1905,7 @@ btnOpenFile_Click_Error:
 
     With Err
          If .Number <> 0 Then
-            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnOpenFile_Click of Form planetPrefs"
+            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnOpenFile_Click of Form sovereignPrefs"
             Resume Next
           End If
     End With
@@ -1930,12 +1930,12 @@ Private Sub btnUpdate_Click()
 
 btnUpdate_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnUpdate_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnUpdate_Click of Form sovereignPrefs"
 End Sub
 
 Private Sub chkGaugeFunctions_Click()
     btnSave.Enabled = True ' enable the save button
-    ' planetWidget.Rotating = chkGaugeFunctions.Value
+    ' sovereignWidget.Rotating = chkGaugeFunctions.Value
 End Sub
 
 Private Sub chkGenStartup_Click()
@@ -1985,7 +1985,7 @@ btnDefaultEditor_Click_Error:
 
     With Err
          If .Number <> 0 Then
-            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnDefaultEditor_Click of Form planetPrefs"
+            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnDefaultEditor_Click of Form sovereignPrefs"
             Resume Next
           End If
     End With
@@ -2014,7 +2014,7 @@ Private Sub chkEnableBalloonTooltips_Click()
 
 chkEnableBalloonTooltips_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkEnableBalloonTooltips_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkEnableBalloonTooltips_Click of Form sovereignPrefs"
 End Sub
 
 
@@ -2041,7 +2041,7 @@ Private Sub chkIgnoreMouse_Click()
 
 chkIgnoreMouse_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkIgnoreMouse_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkIgnoreMouse_Click of Form sovereignPrefs"
 End Sub
 
 '---------------------------------------------------------------------------------------
@@ -2057,7 +2057,7 @@ Private Sub chkPreventDragging_Click()
     btnSave.Enabled = True ' enable the save button
     ' immediately make the widget locked in place
     If chkPreventDragging.Value = 0 Then
-        planetWidget.Locked = 0
+        sovereignWidget.Locked = 0
         gblPlPreventDragging = "0"
         menuForm.mnuLockWidget.Checked = False
         If aspectRatio = "landscape" Then
@@ -2068,15 +2068,15 @@ Private Sub chkPreventDragging_Click()
             txtPortraitYoffset.Text = vbNullString
         End If
     Else
-        planetWidget.Locked = 1
+        sovereignWidget.Locked = 1
         gblPlPreventDragging = "1"
         menuForm.mnuLockWidget.Checked = True
         If aspectRatio = "landscape" Then
-            txtLandscapeHoffset.Text = fMain.planetForm.Left
-            txtLandscapeVoffset.Text = fMain.planetForm.Top
+            txtLandscapeHoffset.Text = fMain.sovereignForm.Left
+            txtLandscapeVoffset.Text = fMain.sovereignForm.Top
         Else
-            txtPortraitHoffset.Text = fMain.planetForm.Left
-            txtPortraitYoffset.Text = fMain.planetForm.Top
+            txtPortraitHoffset.Text = fMain.sovereignForm.Left
+            txtPortraitYoffset.Text = fMain.sovereignForm.Top
         End If
     End If
 
@@ -2087,7 +2087,7 @@ chkPreventDragging_Click_Error:
 
     With Err
          If .Number <> 0 Then
-            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkPreventDragging_Click of Form planetPrefs"
+            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkPreventDragging_Click of Form sovereignPrefs"
             Resume Next
           End If
     End With
@@ -2107,18 +2107,18 @@ Private Sub chkWidgetHidden_Click()
    On Error GoTo chkWidgetHidden_Click_Error
 
     If chkWidgetHidden.Value = 0 Then
-        planetWidget.Hidden = False
+        sovereignWidget.Hidden = False
 
         frmTimer.revealWidgetTimer.Enabled = False
         gblPlWidgetHidden = "0"
     Else
-        planetWidget.Hidden = True
+        sovereignWidget.Hidden = True
 
         frmTimer.revealWidgetTimer.Enabled = True
         gblPlWidgetHidden = "1"
     End If
     
-    sPutINISetting softwarePlanet, "widgetHidden", gblPlWidgetHidden, gblPlSettingsFile
+    sPutINISetting sovereignSoftwareLocation, "widgetHidden", gblPlWidgetHidden, gblPlSettingsFile
     
     btnSave.Enabled = True ' enable the save button
 
@@ -2127,7 +2127,7 @@ Private Sub chkWidgetHidden_Click()
 
 chkWidgetHidden_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkWidgetHidden_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkWidgetHidden_Click of Form sovereignPrefs"
 
 End Sub
 
@@ -2143,13 +2143,13 @@ Private Sub cmbAspectHidden_Click()
    On Error GoTo cmbAspectHidden_Click_Error
 
     If cmbAspectHidden.ListIndex = 1 And aspectRatio = "portrait" Then
-        planetWidget.Hidden = True
+        sovereignWidget.Hidden = True
 
     ElseIf cmbAspectHidden.ListIndex = 2 And aspectRatio = "landscape" Then
-        planetWidget.Hidden = True
+        sovereignWidget.Hidden = True
 
     Else
-        planetWidget.Hidden = False
+        sovereignWidget.Hidden = False
     End If
 
     btnSave.Enabled = True ' enable the save button
@@ -2159,7 +2159,7 @@ Private Sub cmbAspectHidden_Click()
 
 cmbAspectHidden_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure cmbAspectHidden_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure cmbAspectHidden_Click of Form sovereignPrefs"
 End Sub
 
 '---------------------------------------------------------------------------------------
@@ -2194,7 +2194,7 @@ cmbDebug_Click_Error:
 
     With Err
          If .Number <> 0 Then
-            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure cmbDebug_Click of Form planetPrefs"
+            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure cmbDebug_Click of Form sovereignPrefs"
             Resume Next
           End If
     End With
@@ -2221,14 +2221,14 @@ Private Sub cmbScrollWheelDirection_Click()
    On Error GoTo cmbScrollWheelDirection_Click_Error
 
     btnSave.Enabled = True ' enable the save button
-    planetWidget.ZoomDirection = cmbScrollWheelDirection.List(cmbScrollWheelDirection.ListIndex)
+    sovereignWidget.ZoomDirection = cmbScrollWheelDirection.List(cmbScrollWheelDirection.ListIndex)
 
    On Error GoTo 0
    Exit Sub
 
 cmbScrollWheelDirection_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure cmbScrollWheelDirection_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure cmbScrollWheelDirection_Click of Form sovereignPrefs"
 End Sub
 
 Private Sub cmbWidgetLandscape_Click()
@@ -2276,7 +2276,7 @@ cmbWidgetPosition_Click_Error:
 
     With Err
          If .Number <> 0 Then
-            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure cmbWidgetPosition_Click of Form planetPrefs"
+            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure cmbWidgetPosition_Click of Form sovereignPrefs"
             Resume Next
           End If
     End With
@@ -2313,7 +2313,7 @@ IsVisible_Error:
 
     With Err
          If .Number <> 0 Then
-            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure IsVisible of Form planetPrefs"
+            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure IsVisible of Form sovereignPrefs"
             Resume Next
           End If
     End With
@@ -2345,7 +2345,7 @@ Private Sub showLastTab()
 
 showLastTab_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure showLastTab of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure showLastTab of Form sovereignPrefs"
 
 End Sub
 
@@ -2391,7 +2391,7 @@ Private Sub positionPrefsFramesButtons()
     rightHandAlignment = fraAboutButton.Left + fraAboutButton.Width ' use final button rightmost as reference
     frameWidth = rightHandAlignment - frameLeft
     fraScrollbarCover.Left = rightHandAlignment - 690
-    planetPrefs.Width = rightHandAlignment + leftHandGutterWidth + 75 ' (not quite sure why we need the 75 twips padding)
+    sovereignPrefs.Width = rightHandAlignment + leftHandGutterWidth + 75 ' (not quite sure why we need the 75 twips padding)
     
     ' align the top buttons
     fraGeneralButton.Top = buttonTop
@@ -2466,8 +2466,8 @@ Private Sub positionPrefsFramesButtons()
     
     ' set the height of the form itself
 '    If dynamicSizingFlg = False Then
-'        planetPrefs.Height = btnHelp.Top + btnHelp.Height + 600
-'        lastFormHeight = planetPrefs.Height
+'        sovereignPrefs.Height = btnHelp.Top + btnHelp.Height + 600
+'        lastFormHeight = sovereignPrefs.Height
 '    End If
 
    On Error GoTo 0
@@ -2475,7 +2475,7 @@ Private Sub positionPrefsFramesButtons()
 
 positionPrefsFramesButtons_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure positionPrefsFramesButtons of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure positionPrefsFramesButtons of Form sovereignPrefs"
 
 End Sub
 
@@ -2492,7 +2492,7 @@ Private Sub btnCancel_Click()
    On Error GoTo btnCancel_Click_Error
 
     btnSave.Enabled = False ' disable the save button
-    planetPrefs.themeTimer.Enabled = False
+    sovereignPrefs.themeTimer.Enabled = False
 
     Unload Me
 
@@ -2501,7 +2501,7 @@ Private Sub btnCancel_Click()
 
 btnCancel_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnCancel_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnCancel_Click of Form sovereignPrefs"
 End Sub
 '
 '---------------------------------------------------------------------------------------
@@ -2518,7 +2518,7 @@ Private Sub btnHelp_Click()
         If fFExists(App.Path & "\help\Help.chm") Then
             Call ShellExecute(Me.hwnd, "Open", App.Path & "\help\Help.chm", vbNullString, App.Path, 1)
         Else
-            MsgBox ("%Err-I-ErrorNumber 11 - The help file - planet Help.html - is missing from the help folder.")
+            MsgBox ("%Err-I-ErrorNumber 11 - The help file - sovereign Help.html - is missing from the help folder.")
         End If
 
    On Error GoTo 0
@@ -2526,7 +2526,7 @@ Private Sub btnHelp_Click()
 
 btnHelp_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnHelp_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnHelp_Click of Form sovereignPrefs"
 End Sub
 '
 '---------------------------------------------------------------------------------------
@@ -2609,48 +2609,48 @@ Private Sub btnSave_Click()
 
     ' save the values from the general tab
     If fFExists(gblPlSettingsFile) Then
-        sPutINISetting softwarePlanet, "enableTooltips", gblPlEnableTooltips, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "enableBalloonTooltips", gblPlEnableBalloonTooltips, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "showTaskbar", gblPlShowTaskbar, gblPlSettingsFile
+        sPutINISetting sovereignSoftwareLocation, "enableTooltips", gblPlEnableTooltips, gblPlSettingsFile
+        sPutINISetting sovereignSoftwareLocation, "enableBalloonTooltips", gblPlEnableBalloonTooltips, gblPlSettingsFile
+        sPutINISetting sovereignSoftwareLocation, "showTaskbar", gblPlShowTaskbar, gblPlSettingsFile
         
-        sPutINISetting softwarePlanet, "gaugeSize", gblPlGaugeSize, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "scrollWheelDirection", gblPlScrollWheelDirection, gblPlSettingsFile
+        sPutINISetting sovereignSoftwareLocation, "gaugeSize", gblPlGaugeSize, gblPlSettingsFile
+        sPutINISetting sovereignSoftwareLocation, "scrollWheelDirection", gblPlScrollWheelDirection, gblPlSettingsFile
                 
-        sPutINISetting softwarePlanet, "gaugeFunctions", gblPlGaugeFunctions, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "planetSelection", gblPlanetSelection, gblPlSettingsFile
-        'sPutINISetting softwarePlanet, "widgetSkew", 'PrWidgetSkew, gblPlSettingsFile
+        sPutINISetting sovereignSoftwareLocation, "gaugeFunctions", gblPlGaugeFunctions, gblPlSettingsFile
+        sPutINISetting sovereignSoftwareLocation, "planetSelection", gblPlanetSelection, gblPlSettingsFile
+        'sPutINISetting sovereignSoftwareLocation, "widgetSkew", 'PrWidgetSkew, gblPlSettingsFile
         
-        sPutINISetting softwarePlanet, "aspectHidden", gblPlAspectHidden, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "widgetPosition", gblPlWidgetPosition, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "widgetLandscape", gblPlWidgetLandscape, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "widgetPortrait", gblPlWidgetPortrait, gblPlSettingsFile
+        sPutINISetting sovereignSoftwareLocation, "aspectHidden", gblPlAspectHidden, gblPlSettingsFile
+        sPutINISetting sovereignSoftwareLocation, "widgetPosition", gblPlWidgetPosition, gblPlSettingsFile
+        sPutINISetting sovereignSoftwareLocation, "widgetLandscape", gblPlWidgetLandscape, gblPlSettingsFile
+        sPutINISetting sovereignSoftwareLocation, "widgetPortrait", gblPlWidgetPortrait, gblPlSettingsFile
 
-        sPutINISetting softwarePlanet, "prefsFont", gblPlPrefsFont, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "prefsFontSize", gblPlPrefsFontSize, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "prefsFontItalics", gblPlPrefsFontItalics, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "prefsFontColour", gblPlPrefsFontColour, gblPlSettingsFile
+        sPutINISetting sovereignSoftwareLocation, "prefsFont", gblPlPrefsFont, gblPlSettingsFile
+        sPutINISetting sovereignSoftwareLocation, "prefsFontSize", gblPlPrefsFontSize, gblPlSettingsFile
+        sPutINISetting sovereignSoftwareLocation, "prefsFontItalics", gblPlPrefsFontItalics, gblPlSettingsFile
+        sPutINISetting sovereignSoftwareLocation, "prefsFontColour", gblPlPrefsFontColour, gblPlSettingsFile
 
         'save the values from the Windows Config Items
-        sPutINISetting softwarePlanet, "windowLevel", gblPlWindowLevel, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "preventDragging", gblPlPreventDragging, gblPlSettingsFile
+        sPutINISetting sovereignSoftwareLocation, "windowLevel", gblPlWindowLevel, gblPlSettingsFile
+        sPutINISetting sovereignSoftwareLocation, "preventDragging", gblPlPreventDragging, gblPlSettingsFile
         
-        sPutINISetting softwarePlanet, "opacity", gblPlOpacity, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "widgetHidden", gblPlWidgetHidden, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "hidingTime", gblPlHidingTime, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "ignoreMouse", gblPlIgnoreMouse, gblPlSettingsFile
+        sPutINISetting sovereignSoftwareLocation, "opacity", gblPlOpacity, gblPlSettingsFile
+        sPutINISetting sovereignSoftwareLocation, "widgetHidden", gblPlWidgetHidden, gblPlSettingsFile
+        sPutINISetting sovereignSoftwareLocation, "hidingTime", gblPlHidingTime, gblPlSettingsFile
+        sPutINISetting sovereignSoftwareLocation, "ignoreMouse", gblPlIgnoreMouse, gblPlSettingsFile
         
-        sPutINISetting softwarePlanet, "startup", gblPlStartup, gblPlSettingsFile
+        sPutINISetting sovereignSoftwareLocation, "startup", gblPlStartup, gblPlSettingsFile
 
-        sPutINISetting softwarePlanet, "enableSounds", gblPlEnableSounds, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "lastSelectedTab", gblPlLastSelectedTab, gblPlSettingsFile
+        sPutINISetting sovereignSoftwareLocation, "enableSounds", gblPlEnableSounds, gblPlSettingsFile
+        sPutINISetting sovereignSoftwareLocation, "lastSelectedTab", gblPlLastSelectedTab, gblPlSettingsFile
         
-        sPutINISetting softwarePlanet, "debug", gblPlDebug, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "dblClickCommand", gblPlDblClickCommand, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "openFile", gblPlOpenFile, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "defaultEditor", gblPlDefaultEditor, gblPlSettingsFile
+        sPutINISetting sovereignSoftwareLocation, "debug", gblPlDebug, gblPlSettingsFile
+        sPutINISetting sovereignSoftwareLocation, "dblClickCommand", gblPlDblClickCommand, gblPlSettingsFile
+        sPutINISetting sovereignSoftwareLocation, "openFile", gblPlOpenFile, gblPlSettingsFile
+        sPutINISetting sovereignSoftwareLocation, "defaultEditor", gblPlDefaultEditor, gblPlSettingsFile
         
-        sPutINISetting softwarePlanet, "maximiseFormX", gblPlMaximiseFormX, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "maximiseFormY", gblPlMaximiseFormY, gblPlSettingsFile
+        sPutINISetting sovereignSoftwareLocation, "maximiseFormX", gblPlMaximiseFormX, gblPlSettingsFile
+        sPutINISetting sovereignSoftwareLocation, "maximiseFormY", gblPlMaximiseFormY, gblPlSettingsFile
 
         'save the values from the Text Items
 
@@ -2661,10 +2661,10 @@ Private Sub btnSave_Click()
     ' set the tooltips on the prefs screen
     Call setPrefsTooltips
 
-    ' sets the characteristics of the planet and menus immediately after saving
+    ' sets the characteristics of the sovereign and menus immediately after saving
     Call adjustMainControls
     
-    planetPrefs.SetFocus
+    sovereignPrefs.SetFocus
     btnSave.Enabled = False ' disable the save button showing it has successfully saved
     
    On Error GoTo 0
@@ -2672,7 +2672,7 @@ Private Sub btnSave_Click()
 
 btnSave_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnSave_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnSave_Click of Form sovereignPrefs"
 
 End Sub
 
@@ -2719,7 +2719,7 @@ Private Sub btnPrefsFont_Click()
     fntItalics = CBool(gblPlPrefsFontItalics)
     fntColour = CLng(gblPlPrefsFontColour)
         
-    Call changeFont(planetPrefs, True, fntFont, fntSize, fntWeight, fntStyle, fntColour, fntItalics, fntUnderline, fntFontResult)
+    Call changeFont(sovereignPrefs, True, fntFont, fntSize, fntWeight, fntStyle, fntColour, fntItalics, fntUnderline, fntFontResult)
     
     gblPlPrefsFont = CStr(fntFont)
     gblPlPrefsFontSize = CStr(fntSize)
@@ -2727,10 +2727,10 @@ Private Sub btnPrefsFont_Click()
     gblPlPrefsFontColour = CStr(fntColour)
 
     If fFExists(gblPlSettingsFile) Then ' does the tool's own settings.ini exist?
-        sPutINISetting softwarePlanet, "prefsFont", gblPlPrefsFont, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "prefsFontSize", gblPlPrefsFontSize, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "prefsFontItalics", gblPlPrefsFontItalics, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "PrefsFontColour", gblPlPrefsFontColour, gblPlSettingsFile
+        sPutINISetting sovereignSoftwareLocation, "prefsFont", gblPlPrefsFont, gblPlSettingsFile
+        sPutINISetting sovereignSoftwareLocation, "prefsFontSize", gblPlPrefsFontSize, gblPlSettingsFile
+        sPutINISetting sovereignSoftwareLocation, "prefsFontItalics", gblPlPrefsFontItalics, gblPlSettingsFile
+        sPutINISetting sovereignSoftwareLocation, "PrefsFontColour", gblPlPrefsFontColour, gblPlSettingsFile
     End If
     
     If fntFont = vbNullString Then fntFont = "arial"
@@ -2747,7 +2747,7 @@ Private Sub btnPrefsFont_Click()
 
 btnPrefsFont_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnPrefsFont_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure btnPrefsFont_Click of Form sovereignPrefs"
 
 End Sub
 
@@ -2798,7 +2798,7 @@ Private Sub adjustPrefsControls()
     txtDefaultEditor.Text = gblPlDefaultEditor
     
     If gblPlPrefsFont <> vbNullString Then
-        Call changeFormFont(planetPrefs, gblPlPrefsFont, Val(gblPlPrefsFontSize), fntWeight, fntStyle, gblPlPrefsFontItalics, gblPlPrefsFontColour)
+        Call changeFormFont(sovereignPrefs, gblPlPrefsFont, Val(gblPlPrefsFontSize), fntWeight, fntStyle, gblPlPrefsFontItalics, gblPlPrefsFontColour)
     End If
        
     ' fonts tab
@@ -2811,13 +2811,13 @@ Private Sub adjustPrefsControls()
         
     If gblPlPreventDragging = "1" Then
         If aspectRatio = "landscape" Then
-            txtLandscapeHoffset.Text = fMain.planetForm.Left
-            txtLandscapeVoffset.Text = fMain.planetForm.Top
+            txtLandscapeHoffset.Text = fMain.sovereignForm.Left
+            txtLandscapeVoffset.Text = fMain.sovereignForm.Top
             txtLandscapeHoffset.ToolTipText = "Last Sampled Form X Horizontal Position : " & gblPlMaximiseFormX & "px"
             txtLandscapeVoffset.ToolTipText = "Last Sampled Form Y Vertical Position : " & gblPlMaximiseFormY & "px"
         Else
-            txtPortraitHoffset.Text = fMain.planetForm.Left
-            txtPortraitYoffset.Text = fMain.planetForm.Top
+            txtPortraitHoffset.Text = fMain.sovereignForm.Left
+            txtPortraitYoffset.Text = fMain.sovereignForm.Top
             txtPortraitHoffset.ToolTipText = "Last Sampled Form X Horizontal Position : " & gblPlMaximiseFormX & "px"
             txtPortraitYoffset.ToolTipText = "Last Sampled Form Y Vertical Position : " & gblPlMaximiseFormY & "px"
         End If
@@ -2845,7 +2845,7 @@ Private Sub adjustPrefsControls()
 
 adjustPrefsControls_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure adjustPrefsControls of Form planetPrefs on line " & Erl
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure adjustPrefsControls of Form sovereignPrefs on line " & Erl
 
 End Sub
 '
@@ -2923,7 +2923,7 @@ populatePrefsComboBoxes_Error:
 
     With Err
          If .Number <> 0 Then
-            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure populatePrefsComboBoxes of Form planetPrefs"
+            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure populatePrefsComboBoxes of Form sovereignPrefs"
             Resume Next
           End If
     End With
@@ -2965,7 +2965,7 @@ Private Sub clearBorderStyle()
 
 clearBorderStyle_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure clearBorderStyle of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure clearBorderStyle of Form sovereignPrefs"
 
 End Sub
 
@@ -3008,7 +3008,7 @@ Form_Resize_Error:
 
     With Err
          If .Number <> 0 Then
-            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure Form_Resize of Form planetPrefs"
+            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure Form_Resize of Form sovereignPrefs"
             Resume Next
           End If
     End With
@@ -3035,7 +3035,7 @@ Private Sub Form_Unload(Cancel As Integer)
 
 Form_Unload_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure Form_Unload of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure Form_Unload of Form sovereignPrefs"
 End Sub
 Private Sub Form_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
     fraScrollbarCover.Visible = True
@@ -3057,7 +3057,7 @@ Private Sub fraConfigInner_MouseDown(Button As Integer, Shift As Integer, X As S
     End If
 End Sub
 Private Sub fraConfigInner_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If gblPlEnableTooltips = "1" Then CreateToolTip fraConfigInner.hwnd, "The configuration panel is the location for optional configuration items. These items change how planet operates, configure them to suit your needs and your mode of operation.", _
+    If gblPlEnableTooltips = "1" Then CreateToolTip fraConfigInner.hwnd, "The configuration panel is the location for optional configuration items. These items change how sovereign operates, configure them to suit your needs and your mode of operation.", _
                   TTIconInfo, "Help on Configuration", , , , True
 
 End Sub
@@ -3067,7 +3067,7 @@ Private Sub fraConfig_MouseDown(Button As Integer, Shift As Integer, X As Single
     End If
 End Sub
 Private Sub fraConfig_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    If gblPlEnableTooltips = "1" Then CreateToolTip fraConfig.hwnd, "The configuration panel is the location for optional configuration items. These items change how planet operates, configure them to suit your needs and your mode of operation.", _
+    If gblPlEnableTooltips = "1" Then CreateToolTip fraConfig.hwnd, "The configuration panel is the location for optional configuration items. These items change how sovereign operates, configure them to suit your needs and your mode of operation.", _
                   TTIconInfo, "Help on Configuration", , , , True
 
 End Sub
@@ -3305,12 +3305,12 @@ End Sub
 
 Private Sub sliGaugeSize_Change()
     btnSave.Enabled = True ' enable the save button
-    planetWidget.Zoom = sliGaugeSize.Value / 100
+    sovereignWidget.Zoom = sliGaugeSize.Value / 100
 End Sub
 
 Private Sub sliOpacity_Change()
     btnSave.Enabled = True ' enable the save button
-    planetWidget.opacity = sliOpacity.Value / 100
+    sovereignWidget.opacity = sliOpacity.Value / 100
     gblPlOpacity = LTrim$(Str$(sliOpacity.Value))
 End Sub
 
@@ -3438,7 +3438,7 @@ Public Sub setPrefsTooltips()
         imgFontsClicked.ToolTipText = "Opens the Fonts tab"
         imgGeneral.ToolTipText = "Opens the general tab"
         imgGeneralClicked.ToolTipText = "Opens the general tab"
-        lblPosition(6).ToolTipText = "Tablets only. Don't fiddle with this unless you really know what you are doing. Here you can choose whether this planet widget is hidden by default in either landscape or portrait mode or not at all. This option allows you to have certain widgets that do not obscure the screen in either landscape or portrait. If you accidentally set it so you can't find your widget on screen then change the setting here to NONE."
+        lblPosition(6).ToolTipText = "Tablets only. Don't fiddle with this unless you really know what you are doing. Here you can choose whether this sovereign widget is hidden by default in either landscape or portrait mode or not at all. This option allows you to have certain widgets that do not obscure the screen in either landscape or portrait. If you accidentally set it so you can't find your widget on screen then change the setting here to NONE."
         chkGenStartup.ToolTipText = "Check this box to enable the automatic start of the program when Windows is started."
         chkGaugeFunctions.ToolTipText = "When checked this box enables any functionality. Any adjustment takes place instantly. "
         txtPortraitYoffset.ToolTipText = "Field to hold the vertical offset for the widget position in portrait mode."
@@ -3465,12 +3465,12 @@ Public Sub setPrefsTooltips()
         chkPreventDragging.ToolTipText = "Checking this box turns off the ability to drag the program with the mouse. The locking in position effect takes place instantly."
         chkIgnoreMouse.ToolTipText = "Checking this box causes the program to ignore all mouse events."
         sliOpacity.ToolTipText = "Set the transparency of the program. Any change in opacity takes place instantly."
-        cmbScrollWheelDirection.ToolTipText = "To change the direction of the mouse scroll wheel when resiziing the planet gauge."
+        cmbScrollWheelDirection.ToolTipText = "To change the direction of the mouse scroll wheel when resiziing the sovereign."
         chkEnableBalloonTooltips.ToolTipText = "Check the box to enable larger balloon tooltips for all controls on the main program"
         chkShowTaskbar.ToolTipText = "Check the box to show the widget in the taskbar"
         chkEnableTooltips.ToolTipText = "Check the box to enable tooltips for all controls on the main program"
-        sliGaugeSize.ToolTipText = "Adjust to a percentage of the original size. Any adjustment in size takes place instantly (you can also use Ctrl+Mousewheel hovering over the planet itself)."
-        'sliWidgetSkew.ToolTipText = "Adjust to a degree skew of the original position. Any adjustment in direction takes place instantly (you can also use the Mousewheel hovering over the planet itself."
+        sliGaugeSize.ToolTipText = "Adjust to a percentage of the original size. Any adjustment in size takes place instantly (you can also use Ctrl+Mousewheel hovering over the sovereign itself)."
+        'sliWidgetSkew.ToolTipText = "Adjust to a degree skew of the original position. Any adjustment in direction takes place instantly (you can also use the Mousewheel hovering over the sovereign itself."
         btnFacebook.ToolTipText = "This will link you to the our Steampunk/Dieselpunk program users Group."
         imgAbout.ToolTipText = "Opens the About tab"
         btnAboutDebugInfo.ToolTipText = "This gives access to the debugging tool"
@@ -3553,7 +3553,7 @@ Public Sub setPrefsTooltips()
 
 setPrefsTooltips_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure setPrefsTooltips of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure setPrefsTooltips of Form sovereignPrefs"
 
 End Sub
 '---------------------------------------------------------------------------------------
@@ -3575,7 +3575,7 @@ Public Sub DestroyToolTip()
 
 DestroyToolTip_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure DestroyToolTip of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure DestroyToolTip of Form sovereignPrefs"
 End Sub
 '---------------------------------------------------------------------------------------
 ' Procedure : loadPrefsAboutText
@@ -3599,7 +3599,7 @@ Private Sub loadPrefsAboutText()
 
 loadPrefsAboutText_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure loadPrefsAboutText of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure loadPrefsAboutText of Form sovereignPrefs"
     
 End Sub
 
@@ -3630,7 +3630,7 @@ Private Sub picButtonMouseUpEvent(ByVal thisTabName As String, ByRef thisPicName
     Call clearBorderStyle
 
     gblPlLastSelectedTab = thisTabName
-    sPutINISetting softwarePlanet, "lastSelectedTab", gblPlLastSelectedTab, gblPlSettingsFile
+    sPutINISetting sovereignSoftwareLocation, "lastSelectedTab", gblPlLastSelectedTab, gblPlSettingsFile
 
     thisFraName.Visible = True
     thisFraButtonName.BorderStyle = 1
@@ -3655,7 +3655,7 @@ Private Sub picButtonMouseUpEvent(ByVal thisTabName As String, ByRef thisPicName
         padding = 200 ' add normal padding below the help button to position the bottom of the form
 
         lastFormHeight = btnHelp.Top + btnHelp.Height + captionHeight + borderWidth + padding
-        planetPrefs.Height = lastFormHeight
+        sovereignPrefs.Height = lastFormHeight
     End If
     
     If thisTabName = "about" Then
@@ -3671,7 +3671,7 @@ Private Sub picButtonMouseUpEvent(ByVal thisTabName As String, ByRef thisPicName
 
 picButtonMouseUpEvent_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure picButtonMouseUpEvent of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure picButtonMouseUpEvent of Form sovereignPrefs"
 
 End Sub
 
@@ -3731,7 +3731,7 @@ End Sub
 '        frmCount = frmCount + 1
 '        If frmCount >= 500 Then
 '            frmCount = 0
-'            planetPrefs.Refresh
+'            sovereignPrefs.Refresh
 '        End If
 '    Next useloop
 '
@@ -3740,7 +3740,7 @@ End Sub
 '
 'scrollFrameDownward_Error:
 '
-'    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure scrollFrameDownward of Form planetPrefs"
+'    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure scrollFrameDownward of Form sovereignPrefs"
 '
 'End Sub
 
@@ -3769,7 +3769,7 @@ Private Sub themeTimer_Timer()
 
 themeTimer_Timer_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure themeTimer_Timer of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure themeTimer_Timer of Form sovereignPrefs"
 
 End Sub
 
@@ -3790,7 +3790,7 @@ Private Sub mnuCoffee_Click()
     Exit Sub
 mnuCoffee_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure mnuCoffee_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure mnuCoffee_Click of Form sovereignPrefs"
 End Sub
 
 
@@ -3814,7 +3814,7 @@ mnuLicenceA_Click_Error:
 
     With Err
          If .Number <> 0 Then
-            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure mnuLicenceA_Click of Form planetPrefs"
+            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure mnuLicenceA_Click of Form sovereignPrefs"
             Resume Next
           End If
     End With
@@ -3841,7 +3841,7 @@ Private Sub mnuSupport_Click()
 
 mnuSupport_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure mnuSupport_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure mnuSupport_Click of Form sovereignPrefs"
 End Sub
 
 
@@ -3863,18 +3863,18 @@ Private Sub mnuAuto_Click()
     
    On Error GoTo mnuAuto_Click_Error
 
-    If planetPrefs.themeTimer.Enabled = True Then
+    If sovereignPrefs.themeTimer.Enabled = True Then
             MsgBox "Automatic Theme Selection is now Disabled"
-            planetPrefs.mnuAuto.Caption = "Auto Theme Disabled - Click to Enable"
-            planetPrefs.mnuAuto.Checked = False
+            sovereignPrefs.mnuAuto.Caption = "Auto Theme Disabled - Click to Enable"
+            sovereignPrefs.mnuAuto.Checked = False
             
-            planetPrefs.themeTimer.Enabled = False
+            sovereignPrefs.themeTimer.Enabled = False
     Else
             MsgBox "Auto Theme Selection Enabled. If the o/s theme changes the utility should automatically skin the utility to suit the theme."
-            planetPrefs.mnuAuto.Caption = "Auto Theme Enabled - Click to Disable"
-            planetPrefs.mnuAuto.Checked = True
+            sovereignPrefs.mnuAuto.Caption = "Auto Theme Enabled - Click to Disable"
+            sovereignPrefs.mnuAuto.Checked = True
             
-            planetPrefs.themeTimer.Enabled = True
+            sovereignPrefs.themeTimer.Enabled = True
             Call setThemeColour
     End If
 
@@ -3883,7 +3883,7 @@ Private Sub mnuAuto_Click()
 
 mnuAuto_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure mnuAuto_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure mnuAuto_Click of Form sovereignPrefs"
 End Sub
 
 '---------------------------------------------------------------------------------------
@@ -3896,11 +3896,11 @@ End Sub
 Private Sub mnuDark_Click()
    On Error GoTo mnuDark_Click_Error
 
-    planetPrefs.mnuAuto.Caption = "Auto Theme Disabled - Click to Enable"
-    planetPrefs.mnuAuto.Checked = False
-    planetPrefs.mnuDark.Caption = "Dark Theme Enabled"
-    planetPrefs.mnuLight.Caption = "Light Theme Enable"
-    planetPrefs.themeTimer.Enabled = False
+    sovereignPrefs.mnuAuto.Caption = "Auto Theme Disabled - Click to Enable"
+    sovereignPrefs.mnuAuto.Checked = False
+    sovereignPrefs.mnuDark.Caption = "Dark Theme Enabled"
+    sovereignPrefs.mnuLight.Caption = "Light Theme Enable"
+    sovereignPrefs.themeTimer.Enabled = False
     
     gblPlSkinTheme = "dark"
 
@@ -3911,7 +3911,7 @@ Private Sub mnuDark_Click()
 
 mnuDark_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure mnuDark_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure mnuDark_Click of Form sovereignPrefs"
 End Sub
 
 '---------------------------------------------------------------------------------------
@@ -3925,11 +3925,11 @@ Private Sub mnuLight_Click()
     'MsgBox "Auto Theme Selection Manually Disabled"
    On Error GoTo mnuLight_Click_Error
     
-    planetPrefs.mnuAuto.Caption = "Auto Theme Disabled - Click to Enable"
-    planetPrefs.mnuAuto.Checked = False
-    planetPrefs.mnuDark.Caption = "Dark Theme Enable"
-    planetPrefs.mnuLight.Caption = "Light Theme Enabled"
-    planetPrefs.themeTimer.Enabled = False
+    sovereignPrefs.mnuAuto.Caption = "Auto Theme Disabled - Click to Enable"
+    sovereignPrefs.mnuAuto.Checked = False
+    sovereignPrefs.mnuDark.Caption = "Dark Theme Enable"
+    sovereignPrefs.mnuLight.Caption = "Light Theme Enabled"
+    sovereignPrefs.themeTimer.Enabled = False
     
     gblPlSkinTheme = "light"
 
@@ -3940,7 +3940,7 @@ Private Sub mnuLight_Click()
 
 mnuLight_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure mnuLight_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure mnuLight_Click of Form sovereignPrefs"
 End Sub
 
 
@@ -3962,10 +3962,10 @@ Private Sub setThemeShade(ByVal redC As Integer, ByVal greenC As Integer, ByVal 
 
     ' RGB(redC, greenC, blueC) is the background colour used by the lighter themes
     
-    planetPrefs.BackColor = RGB(redC, greenC, blueC)
+    sovereignPrefs.BackColor = RGB(redC, greenC, blueC)
     
     ' all buttons must be set to graphical
-    For Each ctrl In planetPrefs.Controls
+    For Each ctrl In sovereignPrefs.Controls
         If (TypeOf ctrl Is CommandButton) Or (TypeOf ctrl Is CheckBox) Or (TypeOf ctrl Is Label) Or (TypeOf ctrl Is OptionButton) Or (TypeOf ctrl Is Frame) Then
           ctrl.BackColor = RGB(redC, greenC, blueC)
         End If
@@ -3973,28 +3973,28 @@ Private Sub setThemeShade(ByVal redC As Integer, ByVal greenC As Integer, ByVal 
     
     If redC = 212 Then
         'classicTheme = True
-        planetPrefs.mnuLight.Checked = False
-        planetPrefs.mnuDark.Checked = True
+        sovereignPrefs.mnuLight.Checked = False
+        sovereignPrefs.mnuDark.Checked = True
         
         Call setIconImagesDark
         
     Else
         'classicTheme = False
-        planetPrefs.mnuLight.Checked = True
-        planetPrefs.mnuDark.Checked = False
+        sovereignPrefs.mnuLight.Checked = True
+        sovereignPrefs.mnuDark.Checked = False
         
         Call setIconImagesLight
                 
     End If
     
     'now change the color of the sliders.
-    'planetPrefs.sliplanetSelection.BackColor = RGB(redC, greenC, blueC)
-    'planetPrefs.'sliWidgetSkew.BackColor = RGB(redC, greenC, blueC)
-    planetPrefs.sliGaugeSize.BackColor = RGB(redC, greenC, blueC)
-    planetPrefs.sliOpacity.BackColor = RGB(redC, greenC, blueC)
-    planetPrefs.txtAboutText.BackColor = RGB(redC, greenC, blueC)
+    'sovereignPrefs.sliplanetSelection.BackColor = RGB(redC, greenC, blueC)
+    'sovereignPrefs.'sliWidgetSkew.BackColor = RGB(redC, greenC, blueC)
+    sovereignPrefs.sliGaugeSize.BackColor = RGB(redC, greenC, blueC)
+    sovereignPrefs.sliOpacity.BackColor = RGB(redC, greenC, blueC)
+    sovereignPrefs.txtAboutText.BackColor = RGB(redC, greenC, blueC)
     
-    sPutINISetting softwarePlanet, "skinTheme", gblPlSkinTheme, gblPlSettingsFile ' now saved to the toolsettingsfile
+    sPutINISetting sovereignSoftwareLocation, "skinTheme", gblPlSkinTheme, gblPlSettingsFile ' now saved to the toolsettingsfile
 
     On Error GoTo 0
     Exit Sub
@@ -4034,13 +4034,13 @@ Private Sub setThemeColour()
         SysClr = GetSysColor(COLOR_BTNFACE)
         gblPlSkinTheme = "dark"
         
-        planetPrefs.mnuDark.Caption = "Dark Theme Enabled"
-        planetPrefs.mnuLight.Caption = "Light Theme Enable"
+        sovereignPrefs.mnuDark.Caption = "Dark Theme Enabled"
+        sovereignPrefs.mnuLight.Caption = "Light Theme Enable"
 
     Else
         Call setModernThemeColours
-        planetPrefs.mnuDark.Caption = "Dark Theme Enable"
-        planetPrefs.mnuLight.Caption = "Light Theme Enabled"
+        sovereignPrefs.mnuDark.Caption = "Dark Theme Enable"
+        sovereignPrefs.mnuLight.Caption = "Light Theme Enabled"
     End If
 
     storeThemeColour = SysClr
@@ -4071,7 +4071,7 @@ Private Sub adjustPrefsTheme()
     Else
         If classicThemeCapable = True Then
             mnuAuto.Caption = "Auto Theme Enabled - Click to Disable"
-            planetPrefs.themeTimer.Enabled = True
+            sovereignPrefs.themeTimer.Enabled = True
         Else
             gblPlSkinTheme = "light"
             Call setModernThemeColours
@@ -4083,7 +4083,7 @@ Private Sub adjustPrefsTheme()
 
 adjustPrefsTheme_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure adjustPrefsTheme of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure adjustPrefsTheme of Form sovereignPrefs"
     
 End Sub
 
@@ -4100,7 +4100,7 @@ Private Sub setModernThemeColours()
     
     On Error GoTo setModernThemeColours_Error
     
-    'planetPrefs.mnuAuto.Caption = "Auto Theme Selection Cannot be Enabled"
+    'sovereignPrefs.mnuAuto.Caption = "Auto Theme Selection Cannot be Enabled"
 
     'MsgBox "Windows Alternate Theme detected"
     SysClr = GetSysColor(COLOR_BTNFACE)
@@ -4273,7 +4273,7 @@ Private Sub loadHigherResImages()
         topIconWidth = 1010
     End If
     
-    If planetPrefs.mnuDark.Checked = True Then
+    If sovereignPrefs.mnuDark.Checked = True Then
         Call setIconImagesDark
     Else
         Call setIconImagesLight
@@ -4284,7 +4284,7 @@ Private Sub loadHigherResImages()
 
 loadHigherResImages_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure loadHigherResImages of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure loadHigherResImages of Form sovereignPrefs"
 End Sub
 '---------------------------------------------------------------------------------------
 ' Procedure : positionTimer_Timer
@@ -4304,7 +4304,7 @@ Private Sub positionTimer_Timer()
 
 positionTimer_Timer_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure positionTimer_Timer of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure positionTimer_Timer of Form sovereignPrefs"
 End Sub
 
 
@@ -4329,8 +4329,8 @@ Private Sub chkEnableResizing_Click()
         dynamicSizingFlg = False
         txtPrefsFontCurrentSize.Visible = False
         lblCurrentFontsTab.Visible = False
-        Unload planetPrefs
-        planetPrefs.show
+        Unload sovereignPrefs
+        sovereignPrefs.show
         Call readPrefsPosition
         chkEnableResizing.Caption = "Enable Corner Resizing"
     End If
@@ -4342,7 +4342,7 @@ Private Sub chkEnableResizing_Click()
 
 chkEnableResizing_Click_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkEnableResizing_Click of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure chkEnableResizing_Click of Form sovereignPrefs"
 
 End Sub
 
@@ -4398,7 +4398,7 @@ Private Sub setframeHeights()
 
 setframeHeights_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure setframeHeights of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure setframeHeights of Form sovereignPrefs"
 End Sub
 
 
@@ -4418,31 +4418,31 @@ Private Sub setIconImagesDark()
     
     resourcePath = App.Path & "\resources\images"
 
-    If fFExists(resourcePath & "\config-icon-dark-" & topIconWidth & ".jpg") Then planetPrefs.imgConfig.Picture = LoadPicture(resourcePath & "\config-icon-dark-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\general-icon-dark-" & topIconWidth & ".jpg") Then planetPrefs.imgGeneral.Picture = LoadPicture(resourcePath & "\general-icon-dark-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\position-icon-dark-" & topIconWidth & ".jpg") Then planetPrefs.imgPosition.Picture = LoadPicture(resourcePath & "\position-icon-dark-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\font-icon-dark-" & topIconWidth & ".jpg") Then planetPrefs.imgFonts.Picture = LoadPicture(resourcePath & "\font-icon-dark-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\development-icon-dark-" & topIconWidth & ".jpg") Then planetPrefs.imgDevelopment.Picture = LoadPicture(resourcePath & "\development-icon-dark-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\sounds-icon-dark-" & topIconWidth & ".jpg") Then planetPrefs.imgSounds.Picture = LoadPicture(resourcePath & "\sounds-icon-dark-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\windows-icon-dark-" & topIconWidth & ".jpg") Then planetPrefs.imgWindow.Picture = LoadPicture(resourcePath & "\windows-icon-dark-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\about-icon-dark-" & topIconWidth & ".jpg") Then planetPrefs.imgAbout.Picture = LoadPicture(resourcePath & "\about-icon-dark-" & topIconWidth & ".jpg")
+    If fFExists(resourcePath & "\config-icon-dark-" & topIconWidth & ".jpg") Then sovereignPrefs.imgConfig.Picture = LoadPicture(resourcePath & "\config-icon-dark-" & topIconWidth & ".jpg")
+    If fFExists(resourcePath & "\general-icon-dark-" & topIconWidth & ".jpg") Then sovereignPrefs.imgGeneral.Picture = LoadPicture(resourcePath & "\general-icon-dark-" & topIconWidth & ".jpg")
+    If fFExists(resourcePath & "\position-icon-dark-" & topIconWidth & ".jpg") Then sovereignPrefs.imgPosition.Picture = LoadPicture(resourcePath & "\position-icon-dark-" & topIconWidth & ".jpg")
+    If fFExists(resourcePath & "\font-icon-dark-" & topIconWidth & ".jpg") Then sovereignPrefs.imgFonts.Picture = LoadPicture(resourcePath & "\font-icon-dark-" & topIconWidth & ".jpg")
+    If fFExists(resourcePath & "\development-icon-dark-" & topIconWidth & ".jpg") Then sovereignPrefs.imgDevelopment.Picture = LoadPicture(resourcePath & "\development-icon-dark-" & topIconWidth & ".jpg")
+    If fFExists(resourcePath & "\sounds-icon-dark-" & topIconWidth & ".jpg") Then sovereignPrefs.imgSounds.Picture = LoadPicture(resourcePath & "\sounds-icon-dark-" & topIconWidth & ".jpg")
+    If fFExists(resourcePath & "\windows-icon-dark-" & topIconWidth & ".jpg") Then sovereignPrefs.imgWindow.Picture = LoadPicture(resourcePath & "\windows-icon-dark-" & topIconWidth & ".jpg")
+    If fFExists(resourcePath & "\about-icon-dark-" & topIconWidth & ".jpg") Then sovereignPrefs.imgAbout.Picture = LoadPicture(resourcePath & "\about-icon-dark-" & topIconWidth & ".jpg")
     
     ' I may yet create clicked versions of all the icons but not now!
-    If fFExists(resourcePath & "\config-icon-dark-600-clicked.jpg") Then planetPrefs.imgConfigClicked.Picture = LoadPicture(resourcePath & "\config-icon-dark-600-clicked.jpg")
-    If fFExists(resourcePath & "\general-icon-dark-600-clicked.jpg") Then planetPrefs.imgGeneralClicked.Picture = LoadPicture(resourcePath & "\general-icon-dark-600-clicked.jpg")
-    If fFExists(resourcePath & "\position-icon-dark-600-clicked.jpg") Then planetPrefs.imgPositionClicked.Picture = LoadPicture(resourcePath & "\position-icon-dark-600-clicked.jpg")
-    If fFExists(resourcePath & "\font-icon-dark-600-clicked.jpg") Then planetPrefs.imgFontsClicked.Picture = LoadPicture(resourcePath & "\font-icon-dark-600-clicked.jpg")
-    If fFExists(resourcePath & "\development-icon-dark-600-clicked.jpg") Then planetPrefs.imgDevelopmentClicked.Picture = LoadPicture(resourcePath & "\development-icon-dark-600-clicked.jpg")
-    If fFExists(resourcePath & "\sounds-icon-dark-600-clicked.jpg") Then planetPrefs.imgSoundsClicked.Picture = LoadPicture(resourcePath & "\sounds-icon-dark-600-clicked.jpg")
-    If fFExists(resourcePath & "\windows-icon-dark-600-clicked.jpg") Then planetPrefs.imgWindowClicked.Picture = LoadPicture(resourcePath & "\windows-icon-dark-600-clicked.jpg")
-    If fFExists(resourcePath & "\about-icon-dark-600-clicked.jpg") Then planetPrefs.imgAboutClicked.Picture = LoadPicture(resourcePath & "\about-icon-dark-600-clicked.jpg")
+    If fFExists(resourcePath & "\config-icon-dark-600-clicked.jpg") Then sovereignPrefs.imgConfigClicked.Picture = LoadPicture(resourcePath & "\config-icon-dark-600-clicked.jpg")
+    If fFExists(resourcePath & "\general-icon-dark-600-clicked.jpg") Then sovereignPrefs.imgGeneralClicked.Picture = LoadPicture(resourcePath & "\general-icon-dark-600-clicked.jpg")
+    If fFExists(resourcePath & "\position-icon-dark-600-clicked.jpg") Then sovereignPrefs.imgPositionClicked.Picture = LoadPicture(resourcePath & "\position-icon-dark-600-clicked.jpg")
+    If fFExists(resourcePath & "\font-icon-dark-600-clicked.jpg") Then sovereignPrefs.imgFontsClicked.Picture = LoadPicture(resourcePath & "\font-icon-dark-600-clicked.jpg")
+    If fFExists(resourcePath & "\development-icon-dark-600-clicked.jpg") Then sovereignPrefs.imgDevelopmentClicked.Picture = LoadPicture(resourcePath & "\development-icon-dark-600-clicked.jpg")
+    If fFExists(resourcePath & "\sounds-icon-dark-600-clicked.jpg") Then sovereignPrefs.imgSoundsClicked.Picture = LoadPicture(resourcePath & "\sounds-icon-dark-600-clicked.jpg")
+    If fFExists(resourcePath & "\windows-icon-dark-600-clicked.jpg") Then sovereignPrefs.imgWindowClicked.Picture = LoadPicture(resourcePath & "\windows-icon-dark-600-clicked.jpg")
+    If fFExists(resourcePath & "\about-icon-dark-600-clicked.jpg") Then sovereignPrefs.imgAboutClicked.Picture = LoadPicture(resourcePath & "\about-icon-dark-600-clicked.jpg")
 
    On Error GoTo 0
    Exit Sub
 
 setIconImagesDark_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure setIconImagesDark of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure setIconImagesDark of Form sovereignPrefs"
 
 End Sub
 
@@ -4462,31 +4462,31 @@ Private Sub setIconImagesLight()
     
     resourcePath = App.Path & "\resources\images"
     
-    If fFExists(resourcePath & "\config-icon-light-" & topIconWidth & ".jpg") Then planetPrefs.imgConfig.Picture = LoadPicture(resourcePath & "\config-icon-light-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\general-icon-light-" & topIconWidth & ".jpg") Then planetPrefs.imgGeneral.Picture = LoadPicture(resourcePath & "\general-icon-light-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\position-icon-light-" & topIconWidth & ".jpg") Then planetPrefs.imgPosition.Picture = LoadPicture(resourcePath & "\position-icon-light-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\font-icon-light-" & topIconWidth & ".jpg") Then planetPrefs.imgFonts.Picture = LoadPicture(resourcePath & "\font-icon-light-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\development-icon-light-" & topIconWidth & ".jpg") Then planetPrefs.imgDevelopment.Picture = LoadPicture(resourcePath & "\development-icon-light-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\sounds-icon-light-" & topIconWidth & ".jpg") Then planetPrefs.imgSounds.Picture = LoadPicture(resourcePath & "\sounds-icon-light-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\windows-icon-light-" & topIconWidth & ".jpg") Then planetPrefs.imgWindow.Picture = LoadPicture(resourcePath & "\windows-icon-light-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\about-icon-light-" & topIconWidth & ".jpg") Then planetPrefs.imgAbout.Picture = LoadPicture(resourcePath & "\about-icon-light-" & topIconWidth & ".jpg")
+    If fFExists(resourcePath & "\config-icon-light-" & topIconWidth & ".jpg") Then sovereignPrefs.imgConfig.Picture = LoadPicture(resourcePath & "\config-icon-light-" & topIconWidth & ".jpg")
+    If fFExists(resourcePath & "\general-icon-light-" & topIconWidth & ".jpg") Then sovereignPrefs.imgGeneral.Picture = LoadPicture(resourcePath & "\general-icon-light-" & topIconWidth & ".jpg")
+    If fFExists(resourcePath & "\position-icon-light-" & topIconWidth & ".jpg") Then sovereignPrefs.imgPosition.Picture = LoadPicture(resourcePath & "\position-icon-light-" & topIconWidth & ".jpg")
+    If fFExists(resourcePath & "\font-icon-light-" & topIconWidth & ".jpg") Then sovereignPrefs.imgFonts.Picture = LoadPicture(resourcePath & "\font-icon-light-" & topIconWidth & ".jpg")
+    If fFExists(resourcePath & "\development-icon-light-" & topIconWidth & ".jpg") Then sovereignPrefs.imgDevelopment.Picture = LoadPicture(resourcePath & "\development-icon-light-" & topIconWidth & ".jpg")
+    If fFExists(resourcePath & "\sounds-icon-light-" & topIconWidth & ".jpg") Then sovereignPrefs.imgSounds.Picture = LoadPicture(resourcePath & "\sounds-icon-light-" & topIconWidth & ".jpg")
+    If fFExists(resourcePath & "\windows-icon-light-" & topIconWidth & ".jpg") Then sovereignPrefs.imgWindow.Picture = LoadPicture(resourcePath & "\windows-icon-light-" & topIconWidth & ".jpg")
+    If fFExists(resourcePath & "\about-icon-light-" & topIconWidth & ".jpg") Then sovereignPrefs.imgAbout.Picture = LoadPicture(resourcePath & "\about-icon-light-" & topIconWidth & ".jpg")
     
     ' I may yet create clicked versions of all the icons but not now!
-    If fFExists(resourcePath & "\config-icon-light-600-clicked.jpg") Then planetPrefs.imgConfigClicked.Picture = LoadPicture(resourcePath & "\config-icon-light-600-clicked.jpg")
-    If fFExists(resourcePath & "\general-icon-light-600-clicked.jpg") Then planetPrefs.imgGeneralClicked.Picture = LoadPicture(resourcePath & "\general-icon-light-600-clicked.jpg")
-    If fFExists(resourcePath & "\position-icon-light-600-clicked.jpg") Then planetPrefs.imgPositionClicked.Picture = LoadPicture(resourcePath & "\position-icon-light-600-clicked.jpg")
-    If fFExists(resourcePath & "\font-icon-light-600-clicked.jpg") Then planetPrefs.imgFontsClicked.Picture = LoadPicture(resourcePath & "\font-icon-light-600-clicked.jpg")
-    If fFExists(resourcePath & "\development-icon-light-600-clicked.jpg") Then planetPrefs.imgDevelopmentClicked.Picture = LoadPicture(resourcePath & "\development-icon-light-600-clicked.jpg")
-    If fFExists(resourcePath & "\sounds-icon-light-600-clicked.jpg") Then planetPrefs.imgSoundsClicked.Picture = LoadPicture(resourcePath & "\sounds-icon-light-600-clicked.jpg")
-    If fFExists(resourcePath & "\windows-icon-light-600-clicked.jpg") Then planetPrefs.imgWindowClicked.Picture = LoadPicture(resourcePath & "\windows-icon-light-600-clicked.jpg")
-    If fFExists(resourcePath & "\about-icon-light-600-clicked.jpg") Then planetPrefs.imgAboutClicked.Picture = LoadPicture(resourcePath & "\about-icon-light-600-clicked.jpg")
+    If fFExists(resourcePath & "\config-icon-light-600-clicked.jpg") Then sovereignPrefs.imgConfigClicked.Picture = LoadPicture(resourcePath & "\config-icon-light-600-clicked.jpg")
+    If fFExists(resourcePath & "\general-icon-light-600-clicked.jpg") Then sovereignPrefs.imgGeneralClicked.Picture = LoadPicture(resourcePath & "\general-icon-light-600-clicked.jpg")
+    If fFExists(resourcePath & "\position-icon-light-600-clicked.jpg") Then sovereignPrefs.imgPositionClicked.Picture = LoadPicture(resourcePath & "\position-icon-light-600-clicked.jpg")
+    If fFExists(resourcePath & "\font-icon-light-600-clicked.jpg") Then sovereignPrefs.imgFontsClicked.Picture = LoadPicture(resourcePath & "\font-icon-light-600-clicked.jpg")
+    If fFExists(resourcePath & "\development-icon-light-600-clicked.jpg") Then sovereignPrefs.imgDevelopmentClicked.Picture = LoadPicture(resourcePath & "\development-icon-light-600-clicked.jpg")
+    If fFExists(resourcePath & "\sounds-icon-light-600-clicked.jpg") Then sovereignPrefs.imgSoundsClicked.Picture = LoadPicture(resourcePath & "\sounds-icon-light-600-clicked.jpg")
+    If fFExists(resourcePath & "\windows-icon-light-600-clicked.jpg") Then sovereignPrefs.imgWindowClicked.Picture = LoadPicture(resourcePath & "\windows-icon-light-600-clicked.jpg")
+    If fFExists(resourcePath & "\about-icon-light-600-clicked.jpg") Then sovereignPrefs.imgAboutClicked.Picture = LoadPicture(resourcePath & "\about-icon-light-600-clicked.jpg")
 
    On Error GoTo 0
    Exit Sub
 
 setIconImagesLight_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure setIconImagesLight of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure setIconImagesLight of Form sovereignPrefs"
 
 End Sub
 

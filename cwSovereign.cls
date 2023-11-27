@@ -6,13 +6,13 @@ BEGIN
   DataSourceBehavior  = 0  'vbNone
   MTSTransactionMode  = 0  'NotAnMTSObject
 END
-Attribute VB_Name = "cwPlanet"
+Attribute VB_Name = "cwSovereign"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = True
 Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
 '---------------------------------------------------------------------------------------
-' Module    : cwplanet
+' Module    : cwSovereign
 ' Author    : beededea
 ' Date      : 28/05/2023
 ' Purpose   :
@@ -26,8 +26,8 @@ Private ringxo As Integer
 Private ringyo As Integer
 Private surroundxo As Integer
 Private surroundyo As Integer
-Private planetxo As Integer
-Private planetyo  As Integer
+Private sovereignxo As Integer
+Private sovereignyo  As Integer
 
 Private WithEvents W As cWidgetBase
 Attribute W.VB_VarHelpID = -1
@@ -65,13 +65,13 @@ Private Sub Class_Initialize()
     
     mZoom = 0
 
-    planetxo = 15: planetyo = 27
+    sovereignxo = 15: sovereignyo = 27
           
     Set W = Cairo.WidgetBase '<- this is required in each cwImplementation...
         W.BorderColor = &H444444
         W.ImplementsWheelMessages = True ' enables gblPlivate Sub W_MouseWheel
              
-        mZoom = 0.1 ' the planet size initially very small
+        mZoom = 0.1 ' the sovereign size initially very small
         ZoomDirection = mZoomDirection
     
 
@@ -80,7 +80,7 @@ Private Sub Class_Initialize()
 
 Class_Initialize_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure Class_Initialize of Class Module cwplanet"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure Class_Initialize of Class Module cwSovereign"
 
 End Sub
 
@@ -95,7 +95,7 @@ End Sub
 Private Sub initialiseVars() ' set all vars to zero
     On Error GoTo initialiseVars_Error
 
-    planetxo = 0: planetyo = 0
+    sovereignxo = 0: sovereignyo = 0
     
     On Error GoTo 0
     Exit Sub
@@ -104,7 +104,7 @@ initialiseVars_Error:
 
     With Err
          If .Number <> 0 Then
-            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure initialiseVars of Class Module cwplanet"
+            MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure initialiseVars of Class Module cwSovereign"
             Resume Next
           End If
     End With
@@ -130,7 +130,7 @@ Public Property Get Zoom() As Double
 
 ZoomGet_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure Zoom of Class Module cwplanet"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure Zoom of Class Module cwSovereign"
 End Property
 '---------------------------------------------------------------------------------------
 ' Procedure : Zoom
@@ -151,7 +151,7 @@ Public Property Let Zoom(ByVal newValue As Double)
 
 ZoomLet_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure Zoom of Class Module cwplanet"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure Zoom of Class Module cwSovereign"
 End Property
 '---------------------------------------------------------------------------------------
 ' Procedure : ZoomDirection
@@ -170,7 +170,7 @@ Public Property Get ZoomDirection() As String
 
 ZoomDirectionGet_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure ZoomDirection of Class Module cwplanet"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure ZoomDirection of Class Module cwSovereign"
 End Property
 '---------------------------------------------------------------------------------------
 ' Procedure : ZoomDirection
@@ -190,7 +190,7 @@ Public Property Let ZoomDirection(ByVal newValue As String)
 
 ZoomDirectionLet_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure ZoomDirection of Class Module cwplanet"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure ZoomDirection of Class Module cwSovereign"
 End Property
 '---------------------------------------------------------------------------------------
 ' Procedure : opacity
@@ -209,7 +209,7 @@ Public Property Let opacity(ByVal newValue As Double)
 
 opacityLet_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure opacity of Class Module cwplanet"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure opacity of Class Module cwSovereign"
 End Property
 '---------------------------------------------------------------------------------------
 ' Procedure : opacity
@@ -228,7 +228,7 @@ Public Property Get opacity() As Double
 
 opacityGet_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure opacity of Class Module cwplanet"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure opacity of Class Module cwSovereign"
 End Property
 
 '---------------------------------------------------------------------------------------
@@ -248,7 +248,7 @@ Public Property Get Locked() As Boolean
 
 LockedGet_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure Locked of Class Module cwplanet"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure Locked of Class Module cwSovereign"
 End Property
 '---------------------------------------------------------------------------------------
 ' Procedure : Locked
@@ -267,7 +267,7 @@ Public Property Let Locked(ByVal newValue As Boolean)
 
 LockedLet_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure Locked of Class Module cwplanet"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure Locked of Class Module cwSovereign"
 End Property
 '---------------------------------------------------------------------------------------
 ' Procedure : Hidden
@@ -286,7 +286,7 @@ Public Property Get Hidden() As Boolean
 
 HiddenGet_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure Hidden of Class Module cwplanet"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure Hidden of Class Module cwSovereign"
 End Property
 '---------------------------------------------------------------------------------------
 ' Procedure : Hidden
@@ -313,7 +313,7 @@ Public Property Let Hidden(ByVal newValue As Boolean)
 
 HiddenLet_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure Hidden of Class Module cwplanet"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure Hidden of Class Module cwSovereign"
 End Property
 
 
@@ -337,8 +337,8 @@ Private Sub W_MouseWheel(ByVal MouseKeys As Long, ByVal Rotation As Long, ByVal 
         Else
             Zoom = Zoom + 0.02 * LineOffset
         End If
-        gblPlGaugeSize = LTrim$(Str$(planetWidget.Zoom * 100)) ' store the value dynamically
-        sPutINISetting softwarePlanet, "gaugeSize", gblPlGaugeSize, gblPlSettingsFile
+        gblPlGaugeSize = LTrim$(Str$(sovereignWidget.Zoom * 100)) ' store the value dynamically
+        sPutINISetting sovereignSoftwareLocation, "gaugeSize", gblPlGaugeSize, gblPlSettingsFile
     End Select
 
    On Error GoTo 0
@@ -346,7 +346,7 @@ Private Sub W_MouseWheel(ByVal MouseKeys As Long, ByVal Rotation As Long, ByVal 
 
 W_MouseWheel_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure W_MouseWheel of Class Module cwplanet"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure W_MouseWheel of Class Module cwSovereign"
     
 End Sub
 '---------------------------------------------------------------------------------------
@@ -372,7 +372,7 @@ Private Sub W_MouseDown(Button As Integer, Shift As Integer, ByVal X As Single, 
 
 W_MouseDown_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure W_MouseDown of Class Module cwplanet"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure W_MouseDown of Class Module cwSovereign"
 End Sub
 '---------------------------------------------------------------------------------------
 ' Procedure : W_Paint
@@ -391,7 +391,7 @@ Private Sub W_Paint(CC As vbRichClient5.cCairoContext, ByVal xAbs As Single, ByV
 
 W_Paint_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure W_Paint of Class Module cwplanet"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure W_Paint of Class Module cwSovereign"
 End Sub
 
 
@@ -412,7 +412,7 @@ Public Sub Draw(ByVal CC As cCairoContext, ByVal dx_Aligned As Single, ByVal dy_
 
     CC.Save
    
-     CC.RenderSurfaceContent "planet", planetxo, planetyo, 570, 570, , mOpacity
+     CC.RenderSurfaceContent "sovereign", sovereignxo, sovereignyo, 570, 570, , mOpacity
     
     CC.Restore
 
@@ -422,7 +422,7 @@ Public Sub Draw(ByVal CC As cCairoContext, ByVal dx_Aligned As Single, ByVal dy_
 
 Draw_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure Draw of Class Module cwplanet"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure Draw of Class Module cwSovereign"
 
 End Sub
 

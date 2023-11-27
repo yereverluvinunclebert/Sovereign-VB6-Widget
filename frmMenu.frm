@@ -171,8 +171,8 @@ Private Sub mnuAppFolder_Click()
         execStatus = ShellExecute(Me.hwnd, "open", folderPath, vbNullString, vbNullString, 1)
         If execStatus <= 32 Then MsgBox "Attempt to open folder failed."
     Else
-        MsgBox "Having a bit of a problem opening a folder for this widget - " & folderPath & " It doesn't seem to have a valid working directory set.", "planet Widget Confirmation Message", vbOKOnly + vbExclamation
-        'MessageBox Me.hWnd, "Having a bit of a problem opening a folder for that command - " & sCommand & " It doesn't seem to have a valid working directory set.", "planet Gauge Confirmation Message", vbOKOnly + vbExclamation
+        MsgBox "Having a bit of a problem opening a folder for this widget - " & folderPath & " It doesn't seem to have a valid working directory set.", "sovereign Widget Confirmation Message", vbOKOnly + vbExclamation
+        'MessageBox Me.hWnd, "Having a bit of a problem opening a folder for that command - " & sCommand & " It doesn't seem to have a valid working directory set.", "sovereign Gauge Confirmation Message", vbOKOnly + vbExclamation
     End If
 
    On Error GoTo 0
@@ -229,7 +229,7 @@ Private Sub mnuEditWidget_Click()
         If execStatus <= 32 Then MsgBox "Attempt to open the IDE for this widget failed."
     Else
         MsgBox "Having a bit of a problem opening an IDE for this widgt - " & editorPath & " It doesn't seem to have a valid working directory set."
-        'MessageBox Me.hWnd, "Having a bit of a problem opening a folder for that command - " & sCommand & " It doesn't seem to have a valid working directory set.", "planet Widget Confirmation Message", vbOKOnly + vbExclamation
+        'MessageBox Me.hWnd, "Having a bit of a problem opening a folder for that command - " & sCommand & " It doesn't seem to have a valid working directory set.", "sovereign Widget Confirmation Message", vbOKOnly + vbExclamation
     End If
 
    On Error GoTo 0
@@ -256,7 +256,7 @@ Private Sub mnuHelpHTM_Click()
         If fFExists(App.Path & "\help\Help.chm") Then
             Call ShellExecute(Me.hwnd, "Open", App.Path & "\help\Help.chm", vbNullString, App.Path, 1)
         Else
-            MsgBox ("The help file - planet.html.html- is missing from the help folder.")
+            MsgBox ("The help file - sovereign.html.html- is missing from the help folder.")
         End If
 
    On Error GoTo 0
@@ -314,12 +314,12 @@ End Sub
 Private Sub mnuHideWidget_Click()
     On Error GoTo mnuHideWidget_Click_Error
        
-    planetWidget.Hidden = True
+    sovereignWidget.Hidden = True
     
     frmTimer.revealWidgetTimer.Enabled = True
     gblPlWidgetHidden = "1"
     ' we have to save the value here
-    sPutINISetting softwarePlanet, "widgetHidden", gblPlWidgetHidden, gblPlSettingsFile
+    sPutINISetting sovereignSoftwareLocation, "widgetHidden", gblPlWidgetHidden, gblPlSettingsFile
 
    On Error GoTo 0
    Exit Sub
@@ -349,16 +349,16 @@ Private Sub mnuLockWidget_Click()
     If gblPlPreventDragging = "1" Then
         mnuLockWidget.Checked = False
         gblPlPreventDragging = "0"
-        planetWidget.Locked = False
-        planetPrefs.chkPreventDragging.Value = 0
+        sovereignWidget.Locked = False
+        sovereignPrefs.chkPreventDragging.Value = 0
     Else
         mnuLockWidget.Checked = True
-        planetWidget.Locked = 1
+        sovereignWidget.Locked = 1
         gblPlPreventDragging = "1"
-        planetPrefs.chkPreventDragging.Value = 1
+        sovereignPrefs.chkPreventDragging.Value = 1
     End If
 
-    sPutINISetting softwarePlanet, "preventDragging", gblPlPreventDragging, gblPlSettingsFile
+    sPutINISetting sovereignSoftwareLocation, "preventDragging", gblPlPreventDragging, gblPlSettingsFile
 
    On Error GoTo 0
    Exit Sub
@@ -406,7 +406,7 @@ Private Sub mnuQuit_Click()
 
     On Error GoTo mnuQuit_Click_Error
     
-    Call planetForm_Unload
+    Call sovereignForm_Unload
 
    On Error GoTo 0
    Exit Sub
@@ -579,12 +579,12 @@ End Sub
 Private Sub mnuSwitchOff_Click()
    On Error GoTo mnuSwitchOff_Click_Error
 
-    ' planetWidget.Rotating = False
+    ' sovereignWidget.Rotating = False
     mnuSwitchOff.Checked = True
     mnuTurnFunctionsOn.Checked = False
     
     gblPlGaugeFunctions = "0"
-    sPutINISetting softwarePlanet, "gaugeFunctions", gblPlGaugeFunctions, gblPlSettingsFile
+    sPutINISetting sovereignSoftwareLocation, "gaugeFunctions", gblPlGaugeFunctions, gblPlSettingsFile
 
    On Error GoTo 0
    Exit Sub
@@ -611,12 +611,12 @@ Private Sub mnuTurnFunctionsOn_Click()
         PlaySound App.Path & "\resources\sounds\" & fileToPlay, ByVal 0&, SND_FILENAME Or SND_ASYNC
     End If
 
-    ' planetWidget.Rotating = True
+    ' sovereignWidget.Rotating = True
     mnuSwitchOff.Checked = False
     mnuTurnFunctionsOn.Checked = True
     
     gblPlGaugeFunctions = "1"
-    sPutINISetting softwarePlanet, "gaugeFunctions", gblPlGaugeFunctions, gblPlSettingsFile
+    sPutINISetting sovereignSoftwareLocation, "gaugeFunctions", gblPlGaugeFunctions, gblPlSettingsFile
 
    On Error GoTo 0
    Exit Sub

@@ -394,8 +394,8 @@ Private Declare Function PathFileExists Lib "shlwapi" Alias "PathFileExistsA" (B
 Private Declare Function PathIsDirectory Lib "shlwapi" Alias "PathIsDirectoryA" (ByVal pszPath As String) As Long
 '------------------------------------------------------ ENDS
                             
-Public softwarePlanet As String
-Public thisPlanet As String
+Public sovereignSoftwareLocation As String
+Public thisThing As String
      
 '---------------------------------------------------------------------------------------
 ' Procedure : fFExists
@@ -621,7 +621,7 @@ Public Sub checkLicenceState()
     
     ' read the tool's own settings file
     If fFExists(gblPlSettingsFile) Then ' does the tool's own settings.ini exist?
-        slicence = fGetINISetting(softwarePlanet, "Licence", gblPlSettingsFile)
+        slicence = fGetINISetting(sovereignSoftwareLocation, "Licence", gblPlSettingsFile)
         ' if the licence state is not already accepted then display the licence form
         If slicence = "0" Then
             Call LoadFileToTB(frmLicence.txtLicenceTextBox, App.Path & "\Resources\txt\licence.txt", False)
@@ -1530,10 +1530,10 @@ Public Sub setMainTooltips()
    On Error GoTo setMainTooltips_Error
 
     If gblPlEnableTooltips = "1" Then
-        'planetWidget.Widget.FontName = gblPlPrefsFont ' does not apply to the tooltip
-        planetWidget.Widget.ToolTip = "Use CTRL+mouse scrollwheel up/down to resize."
+        'sovereignWidget.Widget.FontName = gblPlPrefsFont ' does not apply to the tooltip
+        sovereignWidget.Widget.ToolTip = "Use CTRL+mouse scrollwheel up/down to resize."
     Else
-        planetWidget.Widget.ToolTip = ""
+        sovereignWidget.Widget.ToolTip = ""
     End If
     
     Call ChangeToolTipWidgetDefaultSettings(Cairo.ToolTipWidget.Widget)
@@ -1585,12 +1585,12 @@ Public Sub makeVisibleFormElements()
 
     'NOTE that when you position a widget you are positioning the form it is drawn upon.
 
-    fMain.planetForm.Left = Val(fGetINISetting(softwarePlanet, "maximiseFormX", gblPlSettingsFile)) ' / screenPixelsPerPixelX
-    fMain.planetForm.Top = Val(fGetINISetting(softwarePlanet, "maximiseFormY", gblPlSettingsFile)) ' / screenPixelsPerPixelY
+    fMain.sovereignForm.Left = Val(fGetINISetting(sovereignSoftwareLocation, "maximiseFormX", gblPlSettingsFile)) ' / screenPixelsPerPixelX
+    fMain.sovereignForm.Top = Val(fGetINISetting(sovereignSoftwareLocation, "maximiseFormY", gblPlSettingsFile)) ' / screenPixelsPerPixelY
 
     ' The RC forms are measured in pixels, do remember that...
 
-    fMain.planetForm.show
+    fMain.sovereignForm.show
 
     On Error GoTo 0
     Exit Sub
@@ -1788,47 +1788,47 @@ Public Sub mainScreen()
     If aspectRatio = "landscape" Then
         If gblPlWidgetLandscape = "1" Then
             If gblPlLandscapeFormHoffset <> vbNullString Then
-                fMain.planetForm.Left = Val(gblPlLandscapeFormHoffset)
-                fMain.planetForm.Top = Val(gblPlLandscapeFormVoffset)
+                fMain.sovereignForm.Left = Val(gblPlLandscapeFormHoffset)
+                fMain.sovereignForm.Top = Val(gblPlLandscapeFormVoffset)
             End If
         End If
         If gblPlAspectHidden = "2" Then
             'Print "Hiding the widget for landscape mode"
-            planetWidget.opacity = 0
+            sovereignWidget.opacity = 0
         End If
     End If
     
     ' check if the widget has a lock for the screen type.
     If aspectRatio = "portrait" Then
         If gblPlWidgetPortrait = "1" Then
-            fMain.planetForm.Left = Val(gblPlPortraitHoffset)
-            fMain.planetForm.Top = Val(gblPlPortraitYoffset)
+            fMain.sovereignForm.Left = Val(gblPlPortraitHoffset)
+            fMain.sovereignForm.Top = Val(gblPlPortraitYoffset)
         End If
         If gblPlAspectHidden = "1" Then
             'Print "Hiding the widget for portrait mode"
-            planetWidget.opacity = 0
+            sovereignWidget.opacity = 0
         End If
     End If
 
     ' calculate the on screen widget position
-    If fMain.planetForm.Left < 0 Then
-        fMain.planetForm.Left = 10
+    If fMain.sovereignForm.Left < 0 Then
+        fMain.sovereignForm.Left = 10
     End If
-    If fMain.planetForm.Top < 0 Then
-        fMain.planetForm.Top = 0
+    If fMain.sovereignForm.Top < 0 Then
+        fMain.sovereignForm.Top = 0
     End If
-    If fMain.planetForm.Left > screenWidthPixels - 50 Then
-        fMain.planetForm.Left = screenWidthPixels - 150
+    If fMain.sovereignForm.Left > screenWidthPixels - 50 Then
+        fMain.sovereignForm.Left = screenWidthPixels - 150
     End If
-    If fMain.planetForm.Top > screenHeightPixels - 50 Then
-        fMain.planetForm.Top = screenHeightPixels - 150
+    If fMain.sovereignForm.Top > screenHeightPixels - 50 Then
+        fMain.sovereignForm.Top = screenHeightPixels - 150
     End If
 
     ' calculate the current hlocation in % of the screen
     ' store the current hlocation in % of the screen
     If gblPlWidgetPosition = "1" Then
-        gblPlhLocationPercPrefValue = Str$(fMain.planetForm.Left / screenWidthPixels * 100)
-        gblPlvLocationPercPrefValue = Str$(fMain.planetForm.Top / screenHeightPixels * 100)
+        gblPlhLocationPercPrefValue = Str$(fMain.sovereignForm.Left / screenWidthPixels * 100)
+        gblPlvLocationPercPrefValue = Str$(fMain.sovereignForm.Top / screenHeightPixels * 100)
     End If
 
    On Error GoTo 0
@@ -1842,21 +1842,21 @@ End Sub
 
 
 '---------------------------------------------------------------------------------------
-' Procedure : planetForm_Unload
+' Procedure : sovereignForm_Unload
 ' Author    : beededea
 ' Date      : 18/08/2022
 ' Purpose   : the standard form unload routine
 '---------------------------------------------------------------------------------------
 '
-Public Sub planetForm_Unload() ' name follows VB6 standard naming convention
+Public Sub sovereignForm_Unload() ' name follows VB6 standard naming convention
     
     On Error GoTo Form_Unload_Error
     
-    gblPlMaximiseFormX = Str$(fMain.planetForm.Left) ' saving in pixels
-    gblPlMaximiseFormY = Str$(fMain.planetForm.Top)
+    gblPlMaximiseFormX = Str$(fMain.sovereignForm.Left) ' saving in pixels
+    gblPlMaximiseFormY = Str$(fMain.sovereignForm.Top)
     
-    sPutINISetting softwarePlanet, "maximiseFormX", gblPlMaximiseFormX, gblPlSettingsFile
-    sPutINISetting softwarePlanet, "maximiseFormY", gblPlMaximiseFormY, gblPlSettingsFile
+    sPutINISetting sovereignSoftwareLocation, "maximiseFormX", gblPlMaximiseFormX, gblPlSettingsFile
+    sPutINISetting sovereignSoftwareLocation, "maximiseFormY", gblPlMaximiseFormY, gblPlSettingsFile
     
     Call unloadAllForms(True)
 
@@ -1887,25 +1887,25 @@ Public Sub unloadAllForms(ByVal endItAll As Boolean)
     'unload the RC5 widgets on the RC5 forms first
     
     aboutWidget.Widgets.RemoveAll
-    planetWidget.Widgets.RemoveAll
+    sovereignWidget.Widgets.RemoveAll
     
     ' unload the native VB6 and RC5 forms
     
-    Unload planetPrefs
+    Unload sovereignPrefs
     Unload helpForm
     Unload frmLicence
     Unload frmTimer
     Unload menuForm
 
     fMain.aboutForm.Unload  ' RC5's own method for killing forms
-    fMain.planetForm.Unload
+    fMain.sovereignForm.Unload
     
     ' remove all variable references to each form in turn
     
-    Set planetPrefs = Nothing
+    Set sovereignPrefs = Nothing
     Set helpForm = Nothing
     Set fMain.aboutForm = Nothing
-    Set fMain.planetForm = Nothing
+    Set fMain.sovereignForm = Nothing
     Set frmLicence = Nothing
     Set frmTimer = Nothing
     Set menuForm = Nothing
@@ -1962,29 +1962,29 @@ End Sub
 Public Sub makeProgramPreferencesAvailable()
     On Error GoTo makeProgramPreferencesAvailable_Error
     
-    If planetPrefs.IsVisible = False Then
+    If sovereignPrefs.IsVisible = False Then
     
-        If planetPrefs.WindowState = vbMinimized Then
-            planetPrefs.WindowState = vbNormal
+        If sovereignPrefs.WindowState = vbMinimized Then
+            sovereignPrefs.WindowState = vbNormal
             'Call readPrefsPosition
         End If
                 ' set the current position of the utility according to previously stored positions
 
-        If planetPrefs.WindowState = vbNormal Then
+        If sovereignPrefs.WindowState = vbNormal Then
         
             Call readPrefsPosition
             
-            If planetPrefs.Left = 0 Then
-                If ((fMain.planetForm.Left + fMain.planetForm.Width) * screenTwipsPerPixelX) + 200 + planetPrefs.Width > screenWidthTwips Then
-                    planetPrefs.Left = (fMain.planetForm.Left * screenTwipsPerPixelX) - (planetPrefs.Width + 200)
+            If sovereignPrefs.Left = 0 Then
+                If ((fMain.sovereignForm.Left + fMain.sovereignForm.Width) * screenTwipsPerPixelX) + 200 + sovereignPrefs.Width > screenWidthTwips Then
+                    sovereignPrefs.Left = (fMain.sovereignForm.Left * screenTwipsPerPixelX) - (sovereignPrefs.Width + 200)
                 End If
             End If
             
-            If planetPrefs.Left < 0 Then planetPrefs.Left = 0
-            If planetPrefs.Top < 0 Then planetPrefs.Top = 0
+            If sovereignPrefs.Left < 0 Then sovereignPrefs.Left = 0
+            If sovereignPrefs.Top < 0 Then sovereignPrefs.Top = 0
             
-            planetPrefs.show  ' show it again
-            planetPrefs.SetFocus
+            sovereignPrefs.show  ' show it again
+            sovereignPrefs.SetFocus
         End If
     End If
     
@@ -2009,20 +2009,20 @@ Public Sub readPrefsPosition()
             
    On Error GoTo readPrefsPosition_Error
 
-    gblPlFormXPosTwips = fGetINISetting(softwarePlanet, "formXPos", gblPlSettingsFile)
-    gblPlFormYPosTwips = fGetINISetting(softwarePlanet, "formYPos", gblPlSettingsFile)
+    gblPlFormXPosTwips = fGetINISetting(sovereignSoftwareLocation, "formXPos", gblPlSettingsFile)
+    gblPlFormYPosTwips = fGetINISetting(sovereignSoftwareLocation, "formYPos", gblPlSettingsFile)
 
     ' if a current location not stored then position to the middle of the screen
     If gblPlFormXPosTwips <> "" Then
-        planetPrefs.Left = Val(gblPlFormXPosTwips)
+        sovereignPrefs.Left = Val(gblPlFormXPosTwips)
     Else
-        planetPrefs.Left = screenWidthTwips / 2 - planetPrefs.Width / 2
+        sovereignPrefs.Left = screenWidthTwips / 2 - sovereignPrefs.Width / 2
     End If
 
     If gblPlFormYPosTwips <> "" Then
-        planetPrefs.Top = Val(gblPlFormYPosTwips)
+        sovereignPrefs.Top = Val(gblPlFormYPosTwips)
     Else
-        planetPrefs.Top = Screen.Height / 2 - planetPrefs.Height / 2
+        sovereignPrefs.Top = Screen.Height / 2 - sovereignPrefs.Height / 2
     End If
 
    On Error GoTo 0
@@ -2043,13 +2043,13 @@ Public Sub writePrefsPosition()
         
    On Error GoTo writePrefsPosition_Error
 
-    If planetPrefs.WindowState = vbNormal Then ' when vbMinimised the value = -48000  !
-        gblPlFormXPosTwips = LTrim$(Str$(planetPrefs.Left))
-        gblPlFormYPosTwips = LTrim$(Str$(planetPrefs.Top))
+    If sovereignPrefs.WindowState = vbNormal Then ' when vbMinimised the value = -48000  !
+        gblPlFormXPosTwips = LTrim$(Str$(sovereignPrefs.Left))
+        gblPlFormYPosTwips = LTrim$(Str$(sovereignPrefs.Top))
         
         ' now write those params to the toolSettings.ini
-        sPutINISetting softwarePlanet, "formXPos", gblPlFormXPosTwips, gblPlSettingsFile
-        sPutINISetting softwarePlanet, "formYPos", gblPlFormYPosTwips, gblPlSettingsFile
+        sPutINISetting sovereignSoftwareLocation, "formXPos", gblPlFormXPosTwips, gblPlSettingsFile
+        sPutINISetting sovereignSoftwareLocation, "formYPos", gblPlFormYPosTwips, gblPlSettingsFile
     End If
     
     On Error GoTo 0
@@ -2057,7 +2057,7 @@ Public Sub writePrefsPosition()
 
 writePrefsPosition_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure writePrefsPosition of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure writePrefsPosition of Form sovereignPrefs"
 End Sub
 
 
