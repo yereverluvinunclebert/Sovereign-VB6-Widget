@@ -339,6 +339,8 @@ Private Sub W_MouseWheel(ByVal MouseKeys As Long, ByVal Rotation As Long, ByVal 
         End If
         gblPlGaugeSize = LTrim$(Str$(sovereignWidget.Zoom * 100)) ' store the value dynamically
         sPutINISetting sovereignSoftwareLocation, "gaugeSize", gblPlGaugeSize, gblPlSettingsFile
+        
+        If sovereignPrefs.IsVisible = True Then sovereignPrefs.sliGaugeSize = Val(gblPlGaugeSize)
     End Select
 
    On Error GoTo 0
